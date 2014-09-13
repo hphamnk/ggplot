@@ -2,6 +2,7 @@ library("ggplot2")
 options(java.parameters="-Xmx2g")
 library(rJava)
 library(RJDBC)
+library(scales)
 
 jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="F:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
 
@@ -16,12 +17,14 @@ if(!inherits(possibleError, "error")){
   popState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, sum(p.CENSUS2010POP) as Population
   from POPULATION p 
     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
   group by s.STATE_NAME
   order by s.STATE_NAME asc")
-  popStateRace <- dbGetQuery(jdbcConnection, "select s.STATE_NAME, r.RACE_NAME, sum(p.CENSUS2010POP)
+  popStateRace <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
   from POPULATION p
      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
   group by s.STATE_NAME, r.RACE_NAME
   order by s.STATE_NAME asc")
   dbDisconnect(jdbcConnection)
@@ -34,7 +37,7 @@ head(popState)
 #ggplot(popState, aes(y = POPULATION, x = STATE)) + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))  + coord_flip() + ggtitle("Population by State")
 gpopState <- ggplot(popState, aes(y = POPULATION, x = STATE)) + coord_flip() + ggtitle("Population by State") + scale_y_continuous(labels = comma)
 popState$STATE2 <-reorder(popState$STATE, popState$POPULATION)
-gpopState + geom_bar(aes(x=STATE2), data = popState) , stat = "identity")
+gpopState + geom_bar(aes(x=STATE2), data = popState , stat = "identity")
 
 head(popStateRace)
 

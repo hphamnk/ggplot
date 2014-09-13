@@ -1,31 +1,83 @@
+-- Total Pop: 316,428,186
 select sum(CENSUS2010POP) as Total_Pop
-  from POPULATION INNER JOIN STATE
-    on POPULATION.STATE_ID = STATE.STATE_ID
---  where STATE_NAME = 'Texas' and RACE_ID = 1
+  from POPULATION --INNER JOIN STATE
+    -- on POPULATION.STATE_ID = STATE.STATE_ID
+  where ORIGIN_ID = 0 and SEX_ID = 0
+;
+
+select sum(CENSUS2010POP) as Total_Pop
+  from POPULATION
+  where (ORIGIN_ID = 1 or ORIGIN_ID = 2) and (SEX_ID = 1 or SEX_ID = 2)
+;
+
+-- Origin Non Hispanic: 264,369,462
+select sum(CENSUS2010POP) as Total_Pop
+  from POPULATION
+  where ORIGIN_ID = 1 and SEX_ID = 0
+;
+
+-- Origin Hispanic = 52,058,724
+select sum(CENSUS2010POP) as Total_Pop
+  from POPULATION
+  where ORIGIN_ID = 2 and SEX_ID = 0
+;
+
+--total population by race
+select r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
+  from POPULATION p 
+    INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
+  group by r.RACE_NAME
+  order by r.RACE_NAME asc
 ;
 
 --total population by states
-select s.STATE_NAME, sum(p.CENSUS2010POP)
+select s.STATE_NAME as State, sum(p.CENSUS2010POP) as Population
   from POPULATION p 
     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
   group by s.STATE_NAME
   order by s.STATE_NAME asc
 ;
 
 --total population by state, race
-select s.STATE_NAME, r.RACE_NAME, sum(p.CENSUS2010POP)
+select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
   from POPULATION p
      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
   group by s.STATE_NAME, r.RACE_NAME
   order by s.STATE_NAME asc
 ;
 
+--total population by origin, state, race
+select o.ORIGIN_NAME as Origin, s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+     INNER JOIN ORIGIN o on  p.ORIGIN_ID = o.ORIGIN_ID
+  where p.SEX_ID = 0
+  group by s.STATE_NAME, r.RACE_NAME, o.ORIGIN_NAME
+  order by s.STATE_NAME asc
+;
+
+--total population by sex, race
+select s.SEX_NAME as Sex, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN SEX s on p.SEX_ID = s.SEX_ID
+     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0
+  group by s.SEX_NAME, r.RACE_NAME
+  order by r.RACE_NAME asc
+;
+
 --total population by division, race
-select d.DIVISION_NAME, r.RACE_NAME, sum(p.CENSUS2010POP)
+select d.DIVISION_NAME as Division, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
   from POPULATION p
      INNER JOIN DIVISION d on p.DIVISION_ID = d.DIVISION_ID
      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
   group by d.DIVISION_NAME, r.RACE_NAME
   order by d.DIVISION_NAME asc
 ;
+
