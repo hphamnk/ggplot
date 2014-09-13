@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EB3B44ED-F993-7E41-6B53-5BC42EBD29E7" name="ORIGIN">
+<sourceDDLFile>origin_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>555FB149-CA9F-5308-4A80-DF0D793D3EDD</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ORIGIN_ID" id="C16690CD-737F-64D9-57D9-D84D1574DEDB">
+<sourceDDLFile>origin_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>1065930E-0217-E5FA-AF87-009032FABA3F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORIGIN_NAME" id="6C15DAFF-B5DF-4173-CFE2-E7E2F0D23BC1">
+<sourceDDLFile>origin_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>F900F0A4-6115-B6ED-DDAF-48C9D02C9C6B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3A1F0DFA-795E-BC64-466A-1499D0AEEAA0</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

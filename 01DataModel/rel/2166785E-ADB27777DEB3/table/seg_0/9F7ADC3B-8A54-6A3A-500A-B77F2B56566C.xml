@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9F7ADC3B-8A54-6A3A-500A-B77F2B56566C" name="STATE">
+<sourceDDLFile>state_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>B8791DBB-5A36-9F42-EDD2-F2F62FFEF292</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="STATE_ID" id="8B3617E6-0526-99AF-16AE-FF9C508727CC">
+<sourceDDLFile>state_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>7777E466-70F6-561E-2611-67BC4BF8EB8F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1FF2849C-83EA-932E-C93B-DA67DC74C56C</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATE_NAME" id="1C3F3E96-1214-7D7D-78C7-DD9C9F784535">
+<sourceDDLFile>state_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>F1D7C089-05EB-C923-77AC-A9769D068BC6</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3A1F0DFA-795E-BC64-466A-1499D0AEEAA0</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

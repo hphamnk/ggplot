@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" mainViewID="4B9303A9-3913-FF68-61C1-A8C1BB2CF2A4">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 20:47:23 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>3FD120B5-9F4E-6278-D5E2-746D192C8319</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>pop_table.sql</fileName>
+<pathName>C:\Users\HP\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>division_table.sql</fileName>
+<pathName>C:\Users\HP\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>origin_table.sql</fileName>
+<pathName>C:\Users\HP\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>race_table.sql</fileName>
+<pathName>C:\Users\HP\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>region_table.sql</fileName>
+<pathName>C:\Users\HP\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>sex_table.sql</fileName>
+<pathName>C:\Users\HP\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>state_table.sql</fileName>
+<pathName>C:\Users\HP\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

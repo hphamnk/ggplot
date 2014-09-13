@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2FF9C78-5056-AA8C-EC74-92E96605EDA0" name="SEX">
+<sourceDDLFile>sex_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>C9A93807-1278-E1C3-DC1B-0B3FAE10C222</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SEX_ID" id="A42F57A7-975C-26C6-411C-3110F359DC02">
+<sourceDDLFile>sex_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>8259DF5C-605E-6889-FF7E-604B58E0C6E2</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEX_NAME" id="1F7AA69E-F053-E581-6955-0538607EBBCC">
+<sourceDDLFile>sex_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>DE82A7D6-C5F8-DDF5-3A72-73C036C493FD</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A78353C0-C871-0E27-D78A-735ABD7CF73E</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

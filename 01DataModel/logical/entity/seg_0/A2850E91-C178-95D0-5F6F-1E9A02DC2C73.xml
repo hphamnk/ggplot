@@ -1,0 +1,189 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A2850E91-C178-95D0-5F6F-1E9A02DC2C73" name="POPULATIONv3">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:38:29 UTC</createdTime>
+<generatorID>C31A15BB-1414-159D-44B1-6E7B25DC47BC</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="REGION ID" id="996F2DD0-7CDA-D935-07DE-8D9E3CC1875A">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:56:04 UTC</createdTime>
+<generatorID>7A6A1B86-ADE5-6B14-15FD-62EA941EF3B8</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<referedAttribute>E6E18AD0-BD1B-0653-1A5D-6C4CDDE5D906</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="DIVISION ID" id="96138C04-11FA-41DC-80D0-0004AACE0666">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:56:44 UTC</createdTime>
+<generatorID>72D509EA-14A3-FBA0-230F-7958095DC563</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<referedAttribute>1FC5FA0B-06EB-54AE-8FF3-602E9B298ECD</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="STATE ID" id="F763E0C3-20C1-2F86-1856-F476FEEF171E">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:56:18 UTC</createdTime>
+<generatorID>D8AEB8C7-75BB-46FA-D32C-13756E44D810</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<referedAttribute>2F71E785-5DD9-2F88-19C6-E4E5A9A2223C</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1FF2849C-83EA-932E-C93B-DA67DC74C56C</domain>
+</Attribute>
+<Attribute name="SEX ID" id="16AF0866-895F-D804-0D94-E082BE35F111">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:56:54 UTC</createdTime>
+<generatorID>E6FA5460-39BD-4516-EEC5-7901DF49F8E2</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<referedAttribute>2259C37B-8AEF-B23D-ED9C-B58DEAEE14C2</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="ORIGIN ID" id="39F0AC3B-9254-B4DE-F7A1-1E6E16CC2546">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:56:31 UTC</createdTime>
+<generatorID>A11FA938-C6AA-A401-10D8-434C04A4F375</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<referedAttribute>3B9537ED-4344-3A09-01F5-36FA141312FA</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="RACE ID" id="B0EDEC89-59F4-CA92-49E3-5B2466FAFD2B">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:57:06 UTC</createdTime>
+<generatorID>61DED535-F031-91F7-4897-95D462F08A1D</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<referedAttribute>02837FC0-40E1-152F-2CB0-628B36717AB5</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="AGE" id="57D8FB6D-E1AA-04EB-84BB-9F0712C9D244">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:38:29 UTC</createdTime>
+<generatorID>51D9D2E9-384C-B2DB-E532-ADFFE59E18B2</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1FF2849C-83EA-932E-C93B-DA67DC74C56C</domain>
+</Attribute>
+<Attribute name="CENSUS2010POP" id="69BFCE60-3A96-1CE8-CC2D-83859A88DC1E">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:38:29 UTC</createdTime>
+<generatorID>E491F171-01F6-F6D5-7346-2F1B87D2B7FD</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+</Attribute>
+<Attribute name="ESTIMATESBASE2010" id="9F47544D-D627-FA99-1BFC-DEA73A58D5E5">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:38:29 UTC</createdTime>
+<generatorID>A18B8F9E-0DD4-EEF4-243E-7A6EE9A96A23</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+</Attribute>
+<Attribute name="POPESTIMATE2010" id="DA448CE9-AEED-69E0-8491-C9AC1E17205A">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:38:29 UTC</createdTime>
+<generatorID>2E25B2D1-88E8-E797-C5A7-C03F1318AB5C</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+</Attribute>
+<Attribute name="POPESTIMATE2011" id="316CE053-3629-F506-E1D9-78071B37284C">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:38:29 UTC</createdTime>
+<generatorID>D5430349-1D82-29D6-AA8C-19CF147EDE4B</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+</Attribute>
+<Attribute name="POPESTIMATE2012" id="C728B3D0-4F78-FAF6-CC6F-AE6C4EF4F428">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:38:29 UTC</createdTime>
+<generatorID>BB3F90F6-86E3-0A57-45E5-E65590EB0629</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+</Attribute>
+<Attribute name="POPESTIMATE2013" id="943853B4-AB2B-99B3-E403-E852D60F374A">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:38:29 UTC</createdTime>
+<generatorID>75F4D8B0-7BB6-3C1E-E9EA-526A706E26DB</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+</Attribute>
+</attributes>
+</Entity>

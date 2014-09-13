@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="84365F3F-4003-DF27-08CE-74AFCF149FF6" name="RACE">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>B20F52AE-9975-AFC5-BA5E-41FE584AEFCE</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="RACE ID" id="02837FC0-40E1-152F-2CB0-628B36717AB5">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>68F2BED4-B36F-C996-9664-12E90C1CAF44</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="RACE NAME" id="AAB5B906-FE52-E2EC-929A-53BB6466349F">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>05CA5855-B408-F517-ABA4-A15966E87664</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1096BBCF-5245-78AB-0601-55EDE8434415</domain>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="15FC7646-CFCA-2527-0165-F6522AB70A1B" name="RACE PK">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:54:41 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>02837FC0-40E1-152F-2CB0-628B36717AB5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

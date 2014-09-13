@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="STATE" directorySegmentName="seg_0" id="9F7ADC3B-8A54-6A3A-500A-B77F2B56566C">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>29E2310F-4AC1-63ED-4BBF-8410DDCA3A43</segment>
+<tableSpace>BB87A074-5623-F7A7-0E3A-0CC39A515800</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="STATE_NAME" id="1C3F3E96-1214-7D7D-78C7-DD9C9F784535">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATE_ID" id="8B3617E6-0526-99AF-16AE-FF9C508727CC">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev11g>

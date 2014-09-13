@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="C##CS347_HNP248" directorySegmentName="seg_0" id="C5666A75-0D64-230C-6F6E-7CF99B86A87C">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 20:47:41 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<schemaObject>89C1945F-4611-E2D0-0ABF-0BA7308FED9D</schemaObject>
+</UserOraclev10g>

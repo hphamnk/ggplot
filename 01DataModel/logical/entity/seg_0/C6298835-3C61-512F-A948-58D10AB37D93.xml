@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C6298835-3C61-512F-A948-58D10AB37D93" name="DIVISION">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>13311BC7-35E1-3D19-74DC-DF3F7B99689B</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="DIVISION ID" id="1FC5FA0B-06EB-54AE-8FF3-602E9B298ECD">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>11F0A639-8125-019F-6104-46A1B17D6667</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="DIVISION NAME" id="0982D9F4-45F5-8887-FC78-8E28498EAEE0">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>175093C0-2B1E-BCCE-B263-76265ECCE800</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3A1F0DFA-795E-BC64-466A-1499D0AEEAA0</domain>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5CD086AC-A085-C7E4-0BA5-C07C46F8E9F9" name="DIVISION PK">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:54:08 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1FC5FA0B-06EB-54AE-8FF3-602E9B298ECD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

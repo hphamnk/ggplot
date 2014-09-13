@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="SchemaObject" objectID="89C1945F-4611-E2D0-0ABF-0BA7308FED9D" name="C##CS347_HNP248" seqName="seg_0"/>
+   <object objectType="Table" objectID="13311BC7-35E1-3D19-74DC-DF3F7B99689B" name="DIVISION" seqName="seg_0"/>
+   <object objectType="Table" objectID="99BBACBC-D98F-268A-5110-22DBBFA49348" name="REGION" seqName="seg_0"/>
+   <object objectType="Table" objectID="9F7ADC3B-8A54-6A3A-500A-B77F2B56566C" name="STATE" seqName="seg_0"/>
+   <object objectType="Table" objectID="B20F52AE-9975-AFC5-BA5E-41FE584AEFCE" name="RACE" seqName="seg_0"/>
+   <object objectType="Table" objectID="C2FF9C78-5056-AA8C-EC74-92E96605EDA0" name="SEX" seqName="seg_0"/>
+   <object objectType="Table" objectID="C31A15BB-1414-159D-44B1-6E7B25DC47BC" name="POPULATION" seqName="seg_0"/>
+   <object objectType="Table" objectID="EB3B44ED-F993-7E41-6B53-5BC42EBD29E7" name="ORIGIN" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

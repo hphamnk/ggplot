@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="99BBACBC-D98F-268A-5110-22DBBFA49348" name="REGION">
+<sourceDDLFile>region_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>FDD60703-E5EE-7DF9-F8B7-2F59FFE1508E</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="REGION_ID" id="7492C67A-91B9-30A7-6C50-3FF219C89848">
+<sourceDDLFile>region_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>4503B073-9E58-B5A8-6B80-55CB2CED4BD8</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGION_NAME" id="0F4CB161-B29A-643C-379B-22CA950CED88">
+<sourceDDLFile>region_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>5F88A298-7BB6-28F3-6F73-678223943894</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3A1F0DFA-795E-BC64-466A-1499D0AEEAA0</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

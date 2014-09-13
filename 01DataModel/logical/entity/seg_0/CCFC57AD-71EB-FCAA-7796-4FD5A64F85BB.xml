@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CCFC57AD-71EB-FCAA-7796-4FD5A64F85BB" name="REGION">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>99BBACBC-D98F-268A-5110-22DBBFA49348</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="REGION ID" id="E6E18AD0-BD1B-0653-1A5D-6C4CDDE5D906">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>7492C67A-91B9-30A7-6C50-3FF219C89848</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="REGION NAME" id="CED11422-4A5B-A905-29F3-BAF21B0FAEC4">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>0F4CB161-B29A-643C-379B-22CA950CED88</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3A1F0DFA-795E-BC64-466A-1499D0AEEAA0</domain>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F082C701-AD33-E2BA-ABA5-2A63ACBCF38F" name="REGION PK">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:51:35 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E6E18AD0-BD1B-0653-1A5D-6C4CDDE5D906</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

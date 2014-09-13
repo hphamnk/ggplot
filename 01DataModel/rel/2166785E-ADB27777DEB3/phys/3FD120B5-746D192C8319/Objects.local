@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.storage.oracle.v12c.StorageDesignOraclev12c>
+   <object objectType="TSpace" objectID="BB87A074-5623-F7A7-0E3A-0CC39A515800" name="USERS" seqName="seg_0"/>
+   <object objectType="User" objectID="C5666A75-0D64-230C-6F6E-7CF99B86A87C" name="C##CS347_HNP248" seqName="seg_0"/>
+   <object objectType="User" objectID="MDSYS" name="MDSYS" seqName="seg_0"/>
+   <object objectType="User" objectID="PUBLIC" name="PUBLIC" seqName="seg_0"/>
+   <object objectType="SType" objectID="47E390DE-0671-C4B1-8428-0F45CBEE18F8" name="SDO_GEOMETRY" seqName="seg_0"/>
+   <object objectType="SType" objectID="F72C39E0-D1CA-8821-2AD7-A1E95A37D3D1" name="XMLTYPE" seqName="seg_0"/>
+   <object objectType="Table" objectID="13311BC7-35E1-3D19-74DC-DF3F7B99689B" name="DIVISION" seqName="seg_0"/>
+   <object objectType="Table" objectID="99BBACBC-D98F-268A-5110-22DBBFA49348" name="REGION" seqName="seg_0"/>
+   <object objectType="Table" objectID="9F7ADC3B-8A54-6A3A-500A-B77F2B56566C" name="STATE" seqName="seg_0"/>
+   <object objectType="Table" objectID="B20F52AE-9975-AFC5-BA5E-41FE584AEFCE" name="RACE" seqName="seg_0"/>
+   <object objectType="Table" objectID="C2FF9C78-5056-AA8C-EC74-92E96605EDA0" name="SEX" seqName="seg_0"/>
+   <object objectType="Table" objectID="C31A15BB-1414-159D-44B1-6E7B25DC47BC" name="POPULATION" seqName="seg_0"/>
+   <object objectType="Table" objectID="EB3B44ED-F993-7E41-6B53-5BC42EBD29E7" name="ORIGIN" seqName="seg_0"/>
+   <object objectType="Segment" objectID="29E2310F-4AC1-63ED-4BBF-8410DDCA3A43" name="Storage2" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.storage.oracle.v12c.StorageDesignOraclev12c>

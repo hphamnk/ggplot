@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B20F52AE-9975-AFC5-BA5E-41FE584AEFCE" name="RACE">
+<sourceDDLFile>race_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>DA5DE6DD-F2B0-0FB6-D24F-2D1D80882F48</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RACE_ID" id="68F2BED4-B36F-C996-9664-12E90C1CAF44">
+<sourceDDLFile>race_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>32D3F9FF-397F-AB1B-D665-FFF4E4D704CB</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RACE_NAME" id="05CA5855-B408-F517-ABA4-A15966E87664">
+<sourceDDLFile>race_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:10:48 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>FB28A8F6-E7D5-FA7D-CA5E-9173A6DD030A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1096BBCF-5245-78AB-0601-55EDE8434415</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

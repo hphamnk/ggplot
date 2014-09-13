@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="829D39D5-3B65-35C7-AEA8-9921FAC66385" name="SEX">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>C2FF9C78-5056-AA8C-EC74-92E96605EDA0</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="SEX ID" id="2259C37B-8AEF-B23D-ED9C-B58DEAEE14C2">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>A42F57A7-975C-26C6-411C-3110F359DC02</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+</Attribute>
+<Attribute name="SEX NAME" id="D13E85D4-E97F-F73E-CC96-D881787EF9CB">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>1F7AA69E-F053-E581-6955-0538607EBBCC</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A78353C0-C871-0E27-D78A-735ABD7CF73E</domain>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="403FE124-74E3-9E7B-20BD-4620EEB2C599" name="SEX PK">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:54:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2259C37B-8AEF-B23D-ED9C-B58DEAEE14C2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

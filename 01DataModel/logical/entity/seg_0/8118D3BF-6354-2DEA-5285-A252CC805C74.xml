@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8118D3BF-6354-2DEA-5285-A252CC805C74" name="STATE">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>9F7ADC3B-8A54-6A3A-500A-B77F2B56566C</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="STATE ID" id="2F71E785-5DD9-2F88-19C6-E4E5A9A2223C">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>8B3617E6-0526-99AF-16AE-FF9C508727CC</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1FF2849C-83EA-932E-C93B-DA67DC74C56C</domain>
+</Attribute>
+<Attribute name="STATE NAME" id="16CCF046-3385-5413-96A5-0FFCB929BFBA">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:23:41 UTC</createdTime>
+<generatorID>1C3F3E96-1214-7D7D-78C7-DD9C9F784535</generatorID>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3A1F0DFA-795E-BC64-466A-1499D0AEEAA0</domain>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1F7BEAEB-5325-E8D1-D0E2-9CF85D7EE38D" name="STATE PK">
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:50:10 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<engineerTo>
+<item key="2166785E-49EC-F6F3-BEBF-ADB27777DEB3" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2F71E785-5DD9-2F88-19C6-E4E5A9A2223C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

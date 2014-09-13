@@ -1,0 +1,38 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="division_table_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_70 BYTE" id="1096BBCF-5245-78AB-0601-55EDE8434415">
+         <createdBy>HP</createdBy>
+         <createdTime>2014-09-11 21:10:48 UTC</createdTime>
+         <ownerDesignName>pop_table</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>70 BYTE</dataTypeSize>
+         <fileName>division_table_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_20 BYTE" id="3A1F0DFA-795E-BC64-466A-1499D0AEEAA0">
+         <createdBy>HP</createdBy>
+         <createdTime>2014-09-11 21:07:49 UTC</createdTime>
+         <ownerDesignName>pop_table</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>20 BYTE</dataTypeSize>
+         <fileName>division_table_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_10 BYTE" id="A78353C0-C871-0E27-D78A-735ABD7CF73E">
+         <createdBy>HP</createdBy>
+         <createdTime>2014-09-11 21:10:48 UTC</createdTime>
+         <ownerDesignName>pop_table</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>10 BYTE</dataTypeSize>
+         <fileName>division_table_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

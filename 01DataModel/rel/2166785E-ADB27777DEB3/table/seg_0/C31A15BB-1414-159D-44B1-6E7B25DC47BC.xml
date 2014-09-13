@@ -1,0 +1,168 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C31A15BB-1414-159D-44B1-6E7B25DC47BC" name="POPULATION">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>94665BB7-5D76-92A5-4644-114DADB829B3</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="REGION_ID" id="27B69D1B-F913-A8C8-2B98-F7ADFCD9F989">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>B5089465-D0AB-D0DE-39E9-88DA358391CD</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIVISION_ID" id="5F95100D-7C6D-BDE3-F29D-4C04039AECBF">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>8A0F150A-0DD9-EA69-25BF-884617493992</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATE_ID" id="8C6E62CE-2C9F-F6D2-E217-C5F45E186E8B">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>F02A859F-6C64-4EEA-2C60-257FB66BB259</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1FF2849C-83EA-932E-C93B-DA67DC74C56C</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEX_ID" id="E6A1F3A5-C045-D71D-1047-FD75259C9FAF">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>ACA43E95-04C7-6F2D-954B-4A4AE67422C4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORIGIN_ID" id="0C049519-639F-4129-8F60-391F2AC24E24">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>9646B453-1170-0AE9-787F-AF21804798F2</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RACE_ID" id="62A474A5-68A0-974A-4935-4147911ADBFC">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>F355CB76-6DAE-EB53-DBA7-378FEA60D4EC</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E01A48E1-40B6-3504-ACF2-7945016BEC78</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AGE" id="51D9D2E9-384C-B2DB-E532-ADFFE59E18B2">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>14EACEF8-0C52-EBE5-1B6F-52E63E3ECD50</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1FF2849C-83EA-932E-C93B-DA67DC74C56C</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CENSUS2010POP" id="E491F171-01F6-F6D5-7346-2F1B87D2B7FD">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>2BF7A633-592D-13A8-F158-5F6C49CD404B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ESTIMATESBASE2010" id="A18B8F9E-0DD4-EEF4-243E-7A6EE9A96A23">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>B3EBDA32-6511-5B21-90EF-4F74C360ED69</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POPESTIMATE2010" id="2E25B2D1-88E8-E797-C5A7-C03F1318AB5C">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>21254BA7-6F55-7C9A-5326-D06002E53F75</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POPESTIMATE2011" id="D5430349-1D82-29D6-AA8C-19CF147EDE4B">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>0FE4195D-5305-7718-780E-44C7C2215A21</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POPESTIMATE2012" id="BB3F90F6-86E3-0A57-45E5-E65590EB0629">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>278AF76B-0628-ADB2-FBC5-66214FECEA3D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POPESTIMATE2013" id="75F4D8B0-7BB6-3C1E-E9EA-526A706E26DB">
+<sourceDDLFile>pop_table.sql</sourceDDLFile>
+<createdBy>HP</createdBy>
+<createdTime>2014-09-11 21:37:29 UTC</createdTime>
+<ownerDesignName>cs378_project1</ownerDesignName>
+<importedID>A386D605-A7A9-8BF5-DB22-DD19C3298CD5</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>98CFDF9F-847B-4D8D-D8DC-1C26C2B12D8A</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

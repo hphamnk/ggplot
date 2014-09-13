@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="3DEDC8D7-F66A-83D9-BFB8-C1AA29E5BC10" name="ORIGIN" seqName="seg_0"/>
+   <object objectType="Entity" objectID="8118D3BF-6354-2DEA-5285-A252CC805C74" name="STATE" seqName="seg_0"/>
+   <object objectType="Entity" objectID="829D39D5-3B65-35C7-AEA8-9921FAC66385" name="SEX" seqName="seg_0"/>
+   <object objectType="Entity" objectID="84365F3F-4003-DF27-08CE-74AFCF149FF6" name="RACE" seqName="seg_0"/>
+   <object objectType="Entity" objectID="A2850E91-C178-95D0-5F6F-1E9A02DC2C73" name="POPULATIONv3" seqName="seg_0"/>
+   <object objectType="Entity" objectID="C6298835-3C61-512F-A948-58D10AB37D93" name="DIVISION" seqName="seg_0"/>
+   <object objectType="Entity" objectID="CCFC57AD-71EB-FCAA-7796-4FD5A64F85BB" name="REGION" seqName="seg_0"/>
+   <object objectType="Relation" objectID="61DED535-F031-91F7-4897-95D462F08A1D" name="Relation_9" seqName="seg_0"/>
+   <object objectType="Relation" objectID="72D509EA-14A3-FBA0-230F-7958095DC563" name="Relation_7" seqName="seg_0"/>
+   <object objectType="Relation" objectID="7A6A1B86-ADE5-6B14-15FD-62EA941EF3B8" name="Relation_6" seqName="seg_0"/>
+   <object objectType="Relation" objectID="A11FA938-C6AA-A401-10D8-434C04A4F375" name="Relation_5" seqName="seg_0"/>
+   <object objectType="Relation" objectID="D8AEB8C7-75BB-46FA-D32C-13756E44D810" name="Relation_3" seqName="seg_0"/>
+   <object objectType="Relation" objectID="E6FA5460-39BD-4516-EEC5-7901DF49F8E2" name="Relation_8" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>
