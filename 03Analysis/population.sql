@@ -40,6 +40,13 @@ select s.STATE_NAME as State, sum(p.CENSUS2010POP) as Population
   order by s.STATE_NAME asc
 ;
 
+--total population by states for map (choro)
+select p.STATE_ID as region, sum(p.CENSUS2010POP) as value
+  from POPULATION p 
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
+  group by p.STATE_ID
+;
+
 --total population by state, race
 select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
   from POPULATION p
@@ -49,6 +56,57 @@ select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Popul
   group by s.STATE_NAME, r.RACE_NAME
   order by s.STATE_NAME asc
 ;
+
+--total population by state, race = white
+select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 1
+  group by s.STATE_NAME, r.RACE_NAME
+  order by s.STATE_NAME asc
+;
+
+--total population by state, race = black
+select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 2
+  group by s.STATE_NAME, r.RACE_NAME
+  order by s.STATE_NAME asc
+;
+
+--total population by state, race = Native Indian
+select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 3
+  group by s.STATE_NAME, r.RACE_NAME
+  order by s.STATE_NAME asc
+;
+
+--total population by state, race = asian
+select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 4
+  group by s.STATE_NAME, r.RACE_NAME
+  order by s.STATE_NAME asc
+;
+
+--total population by state, race = Pacific Islander
+select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 5
+  group by s.STATE_NAME, r.RACE_NAME
+  order by s.STATE_NAME asc
+;
+
 
 --total population by origin, state, race
 select o.ORIGIN_NAME as Origin, s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
