@@ -1,7 +1,6 @@
 library(shiny)
-library("lubridate")
 
-library("ggplot2")
+library(ggplot2)
 options(java.parameters="-Xmx4g")
 library(rJava)
 library(RJDBC)
@@ -91,52 +90,46 @@ colnames(asianState) <- c('region', 'race', 'value')
 colnames(hawaiiState) <- c('region', 'race', 'value')
 
 
-choroplethr(popState, "state", title = 'Population by State', num_buckets=4)
-choroplethr(whiteState, "state", title = 'White Population by State', num_buckets=4)
-choroplethr(blackState, "state", title = 'Black Population by State', num_buckets=4)
-choroplethr(indianState, "state", title = 'American Indian and Alaska Native Population by State', num_buckets=4)
-choroplethr(asianState, "state", title = 'Asian by State', num_buckets=4)
-choroplethr(hawaiiState, "state", title = 'Native Hawaiian and Other Pacific Islander Population by State', num_buckets=4)
-
 shinyServer(function(input, output) {
 
-	s <- "str"
-	g <- popState
-	if (input$var == "Total")
-    	{
-		s <- "Population by State"
-		g <- popState
-	}
-	else if (input$var == "White")
-	{
-		s <- "White Populaiton by State"
-		g <- whiteState
-	}
-	else if (input$var == "Black")
-	{
-		s <- "Black Population by State"
-		g <-blackState
-	}
-	else if (input$var == "Indian")
-	{
-		s <- "American Indian and Alaska Native Population by State"
-		g <- indianState
-	}
-	else if (input$var == "Asian")
-	{
-		s <- "Asian by State"
-		g <-asianState
-	}
-	else
-	{
-		s <- 'Native Hawaiian and Other Pacific Islander Population by State'
-		g <- hawaiiState
-	}
-
-
-     output$displot <- renderPlot({ 
-	choroplethr(g, "state", title = s, num_buckets=4)	          
-     })
+     output$disPlot <- renderPlot({ 
+       
+       s <- "str"
+       g <- popState
+       if (input$var == "Total")
+       {
+         s <- "Population by State"
+         g <- popState
+       }
+       else if (input$var == "White")
+       {
+         s <- "White Populaiton by State"
+         g <- whiteState
+       }
+       else if (input$var == "Black")
+       {
+         s <- "Black Population by State"
+         g <-blackState
+       }
+       else if (input$var == "Indian")
+       {
+         s <- "American Indian and Alaska Native Population by State"
+         g <- indianState
+       }
+       else if (input$var == "Asian")
+       {
+         s <- "Asian by State"
+         g <-asianState
+       }
+       else
+       {
+         s <- 'Native Hawaiian and Other Pacific Islander Population by State'
+         g <- hawaiiState
+       }
+       
+      	choroplethr(g, "state", title = s, num_buckets=4)
+    })
+  
 
   }
 )
