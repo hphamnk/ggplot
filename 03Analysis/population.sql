@@ -22,6 +22,20 @@ select sum(CENSUS2010POP) as Total_Pop
   where ORIGIN_ID = 2 and SEX_ID = 0
 ;
 
+----------------------------------------------------------------------------------
+
+--total population by age
+select p.AGE as Age, sum(p.CENSUS2010POP) as Population
+  from POPULATION p 
+  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
+  group by p.AGE
+  order by p.AGE asc
+;
+
+
+
+----------------------------------------------------------------------------------
+
 --total population by race
 select r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
   from POPULATION p 
@@ -31,21 +45,49 @@ select r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
   order by r.RACE_NAME asc
 ;
 
---total population by states
-select s.STATE_NAME as State, sum(p.CENSUS2010POP) as Population
+----------------------------------------------------------------------------------
+
+--total population by state, age
+select s.STATE_NAME as State, p.AGE as Age, sum(p.CENSUS2010POP) as Population
   from POPULATION p 
     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
   where p.ORIGIN_ID = 0 and p.SEX_ID = 0
-  group by s.STATE_NAME
-  order by s.STATE_NAME asc
+  group by s.STATE_NAME, p.AGE
+  order by s.STATE_NAME, p.AGE asc
 ;
 
---total population by states for map (choro)
-select p.STATE_ID as region, sum(p.CENSUS2010POP) as value
-  from POPULATION p 
-  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
-  group by p.STATE_ID
+--total population by state = Cali, age, sex
+select p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
+  where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2) and s.STATE_NAME = 'CA'
+  group by  p.AGE, s2.SEX_NAME
+  order by  p.AGE, s2.SEX_NAME asc
 ;
+
+--total population by state, age, sex
+select s.STATE_NAME as State, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
+  where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2)
+  group by s.STATE_NAME, p.AGE, s2.SEX_NAME
+  order by s.STATE_NAME, p.AGE, s2.SEX_NAME asc
+;
+--------
+
+--total population by state, race, age, sex
+select s.STATE_NAME as State, r.RACE_NAME as Race, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+     INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
+  where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2)
+  group by s.STATE_NAME, r.RACE_NAME, p.AGE, s2.SEX_NAME
+  order by s.STATE_NAME, r.RACE_NAME, p.AGE, s2.SEX_NAME asc
+;
+----------------------------------------------------------------------------------
 
 --total population by state, race
 select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population

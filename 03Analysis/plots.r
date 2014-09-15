@@ -79,6 +79,34 @@ if(!inherits(possibleError, "error")){
   group by s.STATE_NAME, r.RACE_NAME
   order by s.STATE_NAME asc")
   
+  #population by state, age, sex
+  popSAS <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
+  where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2)
+  group by s.STATE_NAME, p.AGE, s2.SEX_NAME
+  order by s.STATE_NAME, p.AGE, s2.SEX_NAME asc")
+  
+#   popAll <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
+#   from POPULATION p
+#      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+#      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+#      INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
+#   where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2)
+#   group by s.STATE_NAME, r.RACE_NAME, p.AGE, s2.SEX_NAME
+#   order by s.STATE_NAME, r.RACE_NAME, p.AGE, s2.SEX_NAME asc")
+  
+  # cali population
+  popCali <- dbGetQuery(jdbcConnection, "select p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
+  from POPULATION p
+     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+     INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
+  where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2) and s.STATE_NAME = 'CA'
+  group by  p.AGE, s2.SEX_NAME
+  order by  p.AGE, s2.SEX_NAME asc")
+  
+  
 #   #pop by state, race
 #   popStateRace <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
 #   from POPULATION p
@@ -89,9 +117,8 @@ if(!inherits(possibleError, "error")){
 #   order by s.STATE_NAME asc")
   dbDisconnect(jdbcConnection)
 }
-#head(population)
-#head(diamonds)'
-head(popState)
+
+
 #ggplot(popState, aes(y = POPULATION, x = STATE)) + geom_bar(stat = "identity") 
 #ggplot(popState, aes(y = POPULATION, x = STATE)) + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) 
 #ggplot(popState, aes(y = POPULATION, x = STATE)) + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))  + coord_flip() + ggtitle("Population by State")
@@ -99,7 +126,13 @@ head(popState)
 #state chart
 gpopState <- ggplot(popState, aes(y = POPULATION, x = STATE)) + coord_flip() + ggtitle("Population by State") + scale_y_continuous(labels = comma)
 popState$STATE2 <-reorder(popState$STATE, popState$POPULATION)
-gpopState + geom_bar(aes(x=STATE2), data = popState , stat = "identity")
+gpopState + geom_bar(aes(x=STATE2, fill=POPULATION), color = "black", data = popState , stat = "identity") + guides(fill=FALSE)
+
+#age by state, sex chart
+ggplot(data = popSAS, aes(x = AGE, y = POPULATION, fill = SEX)) + geom_bar(stat="identity", position=position_dodge()) + facet_wrap(~STATE, scales = "free")+ ggtitle("Population by State") + scale_y_continuous(labels = comma) + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) 
+
+# ggplot(data = popCali, aes(x = AGE, y = POPULATION, fill = SEX)) + geom_histogram(stat="identity") + scale_y_continuous(labels = comma) + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+# ggplot(data = popCali, aes(x = AGE, y = POPULATION, fill = SEX)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(labels = comma) + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
 
 #state map
 colnames(popState) <- c("region", 'value')
@@ -108,7 +141,7 @@ choroplethr(popState, "state")
 #race chart
 gpopRace <- ggplot(popRace, aes(y = POPULATION, x = RACE)) + coord_flip() + ggtitle("Population by Race") + scale_y_continuous(labels = comma)
 popRace$RACE2 <- reorder(popRace$RACE, popRace$POPULATION)
-gpopRace + geom_bar(aes(x=RACE2), data = popRace , stat = "identity")
+gpopRace + geom_bar(aes(x=RACE2, fill=POPULATION), color = "black", data = popRace , stat = "identity") + guides(fill=FALSE)
 #gpopRace + geom_bar(aes(x=RACE2), data = popRace , stat = "identity") + geom_text(aes(label = POPULATION))
 
 #state map
@@ -118,25 +151,10 @@ colnames(blackState) <- c('region', 'race', 'value')
 colnames(indianState) <- c('region', 'race', 'value')
 colnames(asianState) <- c('region', 'race', 'value')
 colnames(hawaiiState) <- c('region', 'race', 'value')
-choroplethr(popState, "state", title = 'Population by State')
-choroplethr(whiteState, "state", title = 'White Population by State')
-choroplethr(blackState, "state", title = 'Black Population by State')
-choroplethr(indianState, "state", title = 'American Indian and Alaska Native Population by State')
-choroplethr(asianState, "state", title = 'Asian by State')
-choroplethr(hawaiiState, "state", title = 'Native Hawaiian and Other Pacific Islander Population by State')
-
-
-head(popStateRace)
-
-
-ggplot(data = diamonds) + geom_histogram(aes(x = carat))
-ggplot(data = diamonds) + geom_density(aes(x = carat, fill = "gray50"))
-ggplot(diamonds, aes(x = carat, y = price)) + geom_point()
-p <- ggplot(diamonds, aes(x = carat, y = price)) + geom_point(aes(color = color))
-p + facet_wrap(~color) # For ~, see http://stat.ethz.ch/R-manual/R-patched/library/base/html/tilde.html and http://stat.ethz.ch/R-manual/R-patched/library/stats/html/formula.html
-p + facet_grid(cut ~ clarity)
-p <- ggplot(diamonds, aes(x = carat)) + geom_histogram(aes(color = color), binwidth = max(diamonds$carat)/30)
-p + facet_wrap(~color) 
-p + facet_grid(cut ~ clarity)
-
+choroplethr(popState, "state", title = 'Population by State', num_buckets=4)
+choroplethr(whiteState, "state", title = 'White Population by State', num_buckets=4)
+choroplethr(blackState, "state", title = 'Black Population by State', num_buckets=4)
+choroplethr(indianState, "state", title = 'American Indian and Alaska Native Population by State', num_buckets=4)
+choroplethr(asianState, "state", title = 'Asian by State', num_buckets=4)
+choroplethr(hawaiiState, "state", title = 'Native Hawaiian and Other Pacific Islander Population by State', num_buckets=4)
 
