@@ -86,7 +86,41 @@ if(!inherits(possibleError, "error")){
      INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
   where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2)
   group by s.STATE_NAME, p.AGE, s2.SEX_NAME
-  order by s.STATE_NAME, p.AGE, s2.SEX_NAME asc")
+  order by s.STATE_NAME, p.AGE, s2.SEX_NAME asc"
+
+  #total population by state
+  TotalPop <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, sum(p.CENSUS2010POP) as TotalPopulation from POPULATION p 
+	INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+  where p.SEX_ID = 0
+  group by s.STATE_NAME
+  order by s.STATE_NAME asc")
+
+  #male population by state
+  MalePop <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, sum(p.CENSUS2010POP) as MalePopulation from POPULATION p 
+ 	INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+  where p.SEX_ID = 1
+  group by s.STATE_NAME
+  order by s.STATE_NAME asc")
+
+  #texas population by different races
+  TexasAges1 <- dbGetQuery(jdbcConnection, "select age, CENSUS2010POP as population from POPULATION
+  where SEX_ID = 0 and Origin_ID = 0 and STATE_ID = 48 and RACE_ID = 1
+  ")
+
+  TexasAges2 <- dbGetQuery(jdbcConnection, "select age, CENSUS2010POP as population from POPULATION
+  where SEX_ID = 0 and Origin_ID = 0 and STATE_ID = 48 and RACE_ID = 2
+  ")
+
+  TexasAges3 <- dbGetQuery(jdbcConnection, "select age, CENSUS2010POP as population from POPULATION
+  where SEX_ID = 0 and Origin_ID = 0 and STATE_ID = 48 and RACE_ID = 3
+  ")
+
+
+  TexasAges5 <- dbGetQuery(jdbcConnection, "select age, CENSUS2010POP as population from POPULATION
+  where SEX_ID = 0 and Origin_ID = 0 and STATE_ID = 48 and RACE_ID = 5
+  ")
+  
+  )
   
 #   popAll <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
 #   from POPULATION p
@@ -157,4 +191,34 @@ choroplethr(blackState, "state", title = 'Black Population by State', num_bucket
 choroplethr(indianState, "state", title = 'American Indian and Alaska Native Population by State', num_buckets=4)
 choroplethr(asianState, "state", title = 'Asian by State', num_buckets=4)
 choroplethr(hawaiiState, "state", title = 'Native Hawaiian and Other Pacific Islander Population by State', num_buckets=4)
+
+
+#male ratio in US by state
+MaleRatio <- MalePop
+TotalPop[c("col")] <- NA
+
+colnames(MaleRatio) <- c("state", "MALE RATIO")
+
+for (i in 1:50)
+{
+	MaleRatio[i,"MALE RATIO"] <- round(MalePop[i,MalePopulation] / TotalPop[i,TotalPopulation], digits = 3 ) 
+}
+
+colnames(MaleRatio) <- c("region", 'value')
+choroplethr(MaleRatio, "state", title = 'Male Ratio by State')
+
+#population in age by state
+TexasAgesT <- TexasAges1
+
+TexasAgesT$POPULATION <- as.numeric(TexasAgesT$POPULATION)
+TexasAgesT$AGE <- as.numeric(TexasAgesT$AGE)
+
+for(i in 1:86)
+{
+	TexasAgesT[i,"POPULATION"] <- strtoi(TexasAges1[i,"POPULATION"]) + strtoi(TexasAges2[i,"POPULATION"]) + strtoi(TexasAges3[i,"POPULATION"])  + strtoi(TexasAges5[i,"POPULATION"])
+}
+
+
+
+ggplot(TexasAgesT, aes(x = AGE, y = POPULATION)) + ggtitle("Total Population by Age in Texas") + geom_histogram(stat = "identity")
 
