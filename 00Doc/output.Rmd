@@ -18,6 +18,16 @@ sessionInfo()
 
 
 ###The keys for sereval attributes in population.csv
-![](./keys.png) 
+![](./keys.png)
+
+
+###Data Analysis
+
+###Loading Library
+```{r}
+source("./plots.r", echo=TRUE)
+```
+
+
 
 
