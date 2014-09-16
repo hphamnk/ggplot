@@ -24,7 +24,7 @@ sessionInfo()
 ###Data Analysis
 
 ```{r}
-source("./plots.r", echo=TRUE)
+source("../03Analysis/plots.r", echo=TRUE)
 ```
 
 
