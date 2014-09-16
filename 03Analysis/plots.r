@@ -7,6 +7,7 @@ library(maps)
 library(ggmap)
 library(plyr)
 library(choroplethr)
+library(RColorBrewer)
 
 jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="F:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
 
@@ -151,7 +152,7 @@ totalPopState <- ddply(totalPopState, 'STATE', numcolwise(sum))
 # state chart
 statePop <- totalPopState
 statePop$STATE2 <- reorder(statePop$STATE, statePop$POPULATION)
-ggplot(statePop, aes(y = POPULATION, x = STATE)) + coord_flip() + ggtitle("Population by State") + scale_y_continuous(labels = comma) + geom_bar(aes(x=STATE2, fill=POPULATION), color = "black", data = statePop , stat = "identity") + guides(fill=FALSE)
+ggplot(statePop, aes(y = POPULATION, x = STATE)) + coord_flip() + ggtitle("Population by State") + scale_y_continuous(labels = comma) + geom_bar(aes(x=STATE2, fill=factor(STATE2)), color = "black", data = statePop , stat = "identity") + guides(fill=FALSE)
 
 #--------------------
 #age by state, sex chart
@@ -162,7 +163,9 @@ ggplot(data = popSAS, aes(x = AGE, y = POPULATION, fill = SEX)) + geom_bar(stat=
 racePop <- subset(popAll, SEX == 'Total'& ORIGIN =='Total')
 racePop <- ddply(racePop, 'RACE', numcolwise(sum))
 racePop$RACE2 <- reorder(racePop$RACE, racePop$POPULATION)
-ggplot(racePop, aes(y = POPULATION, x = RACE)) + coord_flip() + ggtitle("Population by Race") + scale_y_continuous(labels = comma) + geom_bar(aes(x=RACE2, fill=POPULATION), color = "black", data = racePop , stat = "identity") + guides(fill=FALSE)
+ggplot(racePop, aes(y = POPULATION, x = RACE)) + coord_flip() + ggtitle("Population by Race") + scale_y_continuous(labels = comma) + geom_bar(aes(x=RACE2, fill = factor(RACE2)), color = "black", data = racePop , stat = "identity") + guides(fill=FALSE) + scale_fill_brewer(palette="Spectral")
+
+
 
 #map population by state
 mapPopState <- totalPopState
@@ -199,6 +202,12 @@ mapHawaiiState <- ddply(mapHawaiiState, 'STATE', numcolwise(sum))
 colnames(mapHawaiiState) <- c('region', 'value')
 choroplethr(mapHawaiiState, "state", title = 'Native Hawaiian and Other Pacific Islander Population by State', num_buckets=4)
 
+#map Hispanic Population by State
+mapHispanicState <- subset(popAll, SEX =='Total' & ORIGIN =='Hispanic')
+mapHispanicState <- ddply(mapHispanicState, 'STATE', numcolwise(sum))
+colnames(mapHispanicState) <- c('region', 'value')
+choroplethr(mapHispanicState, "state", title = 'Hispanic Population by State', num_buckets=4)
+
 #male ratio by state
 maleRatio <- subset(popAll, SEX == 'Male')
 maleRatio <- ddply(maleRatio, 'STATE', numcolwise(sum))
@@ -214,11 +223,11 @@ ageCA <- subset(popAll, STATE =='CA' & SEX =='Total' & ORIGIN =='Total')
 ageCA <- ddply(ageCA, 'AGE', numcolwise(sum))
 ageCA$POPULATION <- as.numeric(ageCA$POPULATION)
 ageCA$AGE <- as.numeric(ageCA$AGE)
-ggplot(ageCA, aes(x = AGE, y = POPULATION)) + ggtitle("Total Population by Age in CA") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma)
+ggplot(ageCA, aes(x = AGE, y = POPULATION, fill = factor(AGE))) + ggtitle("Total Population by Age in CA") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
 
 #population by age in TX
 ageTX <- subset(popAll, STATE =='TX'& SEX =='Total' & ORIGIN =='Total')
 ageTX <- ddply(ageTX, 'AGE', numcolwise(sum))
 ageTX$POPULATION <- as.numeric(ageTX$POPULATION)
 ageTX$AGE <- as.numeric(ageTX$AGE)
-ggplot(ageTX, aes(x = AGE, y = POPULATION)) + ggtitle("Total Population by Age in TX") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma)
+ggplot(ageTX, aes(x = AGE, y = POPULATION, fill = factor(AGE))) + ggtitle("Total Population by Age in TX") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
