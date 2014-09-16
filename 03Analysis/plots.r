@@ -209,7 +209,7 @@ colnames(mapHispanicState) <- c('region', 'value')
 choroplethr(mapHispanicState, "state", title = 'Hispanic Population by State', num_buckets=4) + scale_fill_brewer(palette=18)
 
 #male ratio by state
-maleRatio <- subset(popAll, SEX == 'Male', Origin == "Total")
+maleRatio <- subset(popAll, SEX == 'Male' & ORIGIN == "Total")
 maleRatio <- ddply(maleRatio, 'STATE', numcolwise(sum))
 for (i in 1:51)
 {
