@@ -29,7 +29,7 @@ shinyUI(fluidPage(
 	                helpText("Display age distribution of different state"),
 	                selectInput("var2", 
 	                            label = "Choose the state to display",
-	                            choices = list("TX", "CA"),
+	                            choices = list("TX", "CA", "ND", "SD", "WA", "VT", "KS", "WY", "NY", "IL", "FL"),
 	                            selected = "TX")
 	                
 	              ),

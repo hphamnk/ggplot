@@ -96,7 +96,7 @@ shinyServer(function(input, output) {
   })
   
   output$disPlot2 <- renderPlot({ 
-    if (input$var2 == "TX")
+    if (input$var2 == "CA")
     {
       ageCA <- subset(popAll, STATE =='CA' & SEX =='Total' & ORIGIN =='Total')
       ageCA <- ddply(ageCA, 'AGE', numcolwise(sum))
@@ -104,6 +104,78 @@ shinyServer(function(input, output) {
       ageCA$AGE <- as.numeric(ageCA$AGE)
       ggplot(ageCA, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in CA") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)      
     }
+    else if (input$var2 == "ND")
+    {
+      ageND <- subset(popAll, STATE =='ND' & SEX =='Total' & ORIGIN =='Total')
+      ageND <- ddply(ageND, 'AGE', numcolwise(sum))
+      ageND$POPULATION <- as.numeric(ageND$POPULATION)
+      ageND$AGE <- as.numeric(ageND$AGE)
+      ggplot(ageND, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in ND") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)      	    
+    }
+    else if (input$var2 == "WA")
+    {
+      ageWA <- subset(popAll, STATE =='WA' & SEX =='Total' & ORIGIN =='Total')
+      ageWA <- ddply(ageWA, 'AGE', numcolwise(sum))
+      ageWA$POPULATION <- as.numeric(ageWA$POPULATION)
+      ageWA$AGE <- as.numeric(ageWA$AGE)
+      ggplot(ageWA, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in WA") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)      	    
+    }
+    else if (input$var2 == "SD")
+    {
+      ageSD <- subset(popAll, STATE =='SD' & SEX =='Total' & ORIGIN =='Total')
+      ageSD <- ddply(ageSD, 'AGE', numcolwise(sum))
+      ageSD$POPULATION <- as.numeric(ageSD$POPULATION)
+      ageSD$AGE <- as.numeric(ageSD$AGE)
+      ggplot(ageSD, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in SD") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)      	    
+    }
+    else if (input$var2 == "VT")
+    {
+      ageVT <- subset(popAll, STATE =='VT' & SEX =='Total' & ORIGIN =='Total')
+      ageVT <- ddply(ageVT, 'AGE', numcolwise(sum))
+      ageVT$POPULATION <- as.numeric(ageVT$POPULATION)
+      ageVT$AGE <- as.numeric(ageVT$AGE)
+      ggplot(ageVT, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in VT") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)      	    
+    }
+    else if (input$var2 == "KS")
+    {
+      ageKS <- subset(popAll, STATE =='KS' & SEX =='Total' & ORIGIN =='Total')
+      ageKS <- ddply(ageKS, 'AGE', numcolwise(sum))
+      ageKS$POPULATION <- as.numeric(ageKS$POPULATION)
+      ageKS$AGE <- as.numeric(ageKS$AGE)
+      ggplot(ageKS, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in KS") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)      	    
+    }
+    else if (input$var2 == "WY")
+    {
+      ageWY <- subset(popAll, STATE =='WY' & SEX =='Total' & ORIGIN =='Total')
+      ageWY <- ddply(ageWY, 'AGE', numcolwise(sum))
+      ageWY$POPULATION <- as.numeric(ageWY$POPULATION)
+      ageWY$AGE <- as.numeric(ageWY$AGE)
+      ggplot(ageWY, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in WY") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)            
+    }
+    else if (input$var2 == "NY")
+    {
+      ageNY <- subset(popAll, STATE =='NY' & SEX =='Total' & ORIGIN =='Total')
+      ageNY <- ddply(ageNY, 'AGE', numcolwise(sum))
+      ageNY$POPULATION <- as.numeric(ageNY$POPULATION)
+      ageNY$AGE <- as.numeric(ageNY$AGE)
+      ggplot(ageNY, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in NY") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)            
+    }
+    else if (input$var2 == "IL")
+    {
+      ageIL <- subset(popAll, STATE =='IL' & SEX =='Total' & ORIGIN =='Total')
+      ageIL <- ddply(ageIL, 'AGE', numcolwise(sum))
+      ageIL$POPULATION <- as.numeric(ageIL$POPULATION)
+      ageIL$AGE <- as.numeric(ageIL$AGE)
+      ggplot(ageIL, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in IL") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)            
+    }
+    else if (input$var2 == "FL")
+    {
+      ageFL <- subset(popAll, STATE =='FL' & SEX =='Total' & ORIGIN =='Total')
+      ageFL <- ddply(ageFL, 'AGE', numcolwise(sum))
+      ageFL$POPULATION <- as.numeric(ageFL$POPULATION)
+      ageFL$AGE <- as.numeric(ageFL$AGE)
+      ggplot(ageFL, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in FL") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)            
+    }     
     else
     {
       ageTX <- subset(popAll, STATE =='TX'& SEX =='Total' & ORIGIN =='Total')
