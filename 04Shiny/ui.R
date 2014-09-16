@@ -10,11 +10,18 @@ shinyUI(fluidPage(
 	      selectInput("var", 
        		 label = "Choose the type of populaiton to display",
        		 choices = list("Total", "White", "Black or African American", "American Indian and Alaska Native", "Asian", "Hispanic", "Native Hawaiian and Other Pacific Islander"),
-	        selected = "Total")
+	        selected = "Total"),
+         helpText("Display age distribution of different state"),
+   		  selectInput("var2", 
+   		              label = "Choose the state to display",
+   		              choices = list("TX", "CA"),
+   		              selected = "TX")
+         
       ),
     
 		mainPanel(
-		  plotOutput("disPlot")        
+		  plotOutput("disPlot"),
+      plotOutput("disPlot2")
 		)    
 
 	)

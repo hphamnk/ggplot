@@ -95,6 +95,23 @@ shinyServer(function(input, output) {
     }
   })
   
+  output$disPlot2 <- renderPlot({ 
+    if (input$var2 == "TX")
+    {
+      ageCA <- subset(popAll, STATE =='CA' & SEX =='Total' & ORIGIN =='Total')
+      ageCA <- ddply(ageCA, 'AGE', numcolwise(sum))
+      ageCA$POPULATION <- as.numeric(ageCA$POPULATION)
+      ageCA$AGE <- as.numeric(ageCA$AGE)
+      ggplot(ageCA, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in CA") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)      
+    }
+    else
+    {
+      ageTX <- subset(popAll, STATE =='TX'& SEX =='Total' & ORIGIN =='Total')
+      ageTX <- ddply(ageTX, 'AGE', numcolwise(sum))
+      ageTX$POPULATION <- as.numeric(ageTX$POPULATION)
+      ageTX$AGE <- as.numeric(ageTX$AGE)
+      ggplot(ageTX, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in TX") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
+    }})
   
 }
 )
