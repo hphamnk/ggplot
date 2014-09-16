@@ -1,6 +1,7 @@
-library("ggplot2")
+library(ggplot2)
 options(java.parameters="-Xmx4g")
 library(rJava)
+library(DBI)
 library(RJDBC)
 library(scales)
 library(maps)
@@ -9,7 +10,12 @@ library(plyr)
 library(choroplethr)
 library(RColorBrewer)
 
-jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="F:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
+#hp desk
+#jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="F:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
+
+#hp lap
+jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="C:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
+
 
 possibleError <- tryCatch(
   jdbcConnection <- dbConnect(jdbcDriver, "jdbc:oracle:thin:@128.83.138.158:1521:orcl", "C##cs347_hnp248", "orcl_hnp248"),
@@ -29,121 +35,6 @@ if(!inherits(possibleError, "error")){
   
   dbDisconnect(jdbcConnection)
 }
-  
-#   #pop by state
-#   popState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p 
-#     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#   where p.ORIGIN_ID = 0 and p.SEX_ID = 0
-#   group by s.STATE_NAME
-#   order by s.STATE_NAME asc")
-#   
-#   #pop by race
-#   popRace <- dbGetQuery(jdbcConnection, "select r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p 
-#     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-#   where p.ORIGIN_ID = 0 and p.SEX_ID = 0
-#   group by r.RACE_NAME
-#   order by r.RACE_NAME asc")
-#   
-#   #white pop by state
-#   whiteState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p
-#      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-#   where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 1
-#   group by s.STATE_NAME, r.RACE_NAME
-#   order by s.STATE_NAME asc")
-#   
-#   #black pop by state
-#   blackState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p
-#      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-#   where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 2
-#   group by s.STATE_NAME, r.RACE_NAME
-#   order by s.STATE_NAME asc")
-#   
-#   #native indian pop by state
-#   indianState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p
-#      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-#   where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 3
-#   group by s.STATE_NAME, r.RACE_NAME
-#   order by s.STATE_NAME asc")
-#   
-#   #asian pop by state
-#   asianState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p
-#      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-#   where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 4
-#   group by s.STATE_NAME, r.RACE_NAME
-#   order by s.STATE_NAME asc")
-#   
-#   #hawaii pop by state
-#   hawaiiState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p
-#      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-#   where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 5
-#   group by s.STATE_NAME, r.RACE_NAME
-#   order by s.STATE_NAME asc")
-#   
-#   #population by state, age, sex
-#   popSAS <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p
-#      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#      INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
-#   where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2)
-#   group by s.STATE_NAME, p.AGE, s2.SEX_NAME
-#   order by s.STATE_NAME, p.AGE, s2.SEX_NAME asc")
-# 
-#   #total population by state
-#   TotalPop <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, sum(p.CENSUS2010POP) as TotalPopulation from POPULATION p 
-# 	INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#   where p.SEX_ID = 0
-#   group by s.STATE_NAME
-#   order by s.STATE_NAME asc")
-# 
-#   #male population by state
-#   MalePop <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, sum(p.CENSUS2010POP) as MalePopulation from POPULATION p 
-#  	INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#   where p.SEX_ID = 1
-#   group by s.STATE_NAME
-#   order by s.STATE_NAME asc")
-# 
-#   #texas population by different races
-#   TexasAges1 <- dbGetQuery(jdbcConnection, "select age, CENSUS2010POP as population from POPULATION
-#   where SEX_ID = 0 and Origin_ID = 0 and STATE_ID = 48 and RACE_ID = 1
-#   ")
-# 
-#   TexasAges2 <- dbGetQuery(jdbcConnection, "select age, CENSUS2010POP as population from POPULATION
-#   where SEX_ID = 0 and Origin_ID = 0 and STATE_ID = 48 and RACE_ID = 2
-#   ")
-# 
-#   TexasAges3 <- dbGetQuery(jdbcConnection, "select age, CENSUS2010POP as population from POPULATION
-#   where SEX_ID = 0 and Origin_ID = 0 and STATE_ID = 48 and RACE_ID = 3
-#   ")
-# 
-# 
-#   TexasAges5 <- dbGetQuery(jdbcConnection, "select age, CENSUS2010POP as population from POPULATION
-#   where SEX_ID = 0 and Origin_ID = 0 and STATE_ID = 48 and RACE_ID = 5
-#   ")
-#   
-#   
-#   
-#   # cali population
-#   popCali <- dbGetQuery(jdbcConnection, "select p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
-#   from POPULATION p
-#      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-#      INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
-#   where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2) and s.STATE_NAME = 'CA'
-#   group by  p.AGE, s2.SEX_NAME
-#   order by  p.AGE, s2.SEX_NAME asc")
-# dbDisconnect(jdbcConnection)
-# }
 
 # total population by state
 totalPopState <- subset(popAll, SEX == 'Total'& ORIGIN =='Total')

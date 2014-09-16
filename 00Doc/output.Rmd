@@ -9,13 +9,14 @@ Data Science Fall 2014 R Project
 ```{r}
 sessionInfo()
 ```
+###My RStudio Packages:
+![](./rprofile.png) 
 
 ###Logical Model of the Database
 ![](./PopulationLogical.png) 
 
 ###First few rows of population.csv
 ![](./SamplePopulation.png) 
-
 
 ###The keys for sereval attributes in population.csv
 ![](./keys.png)

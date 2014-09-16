@@ -12,8 +12,8 @@ library(choroplethr)
 library(RColorBrewer)
 #runApp('04Shiny')
 
-jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="F:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
-#jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="C:/Program Files/Java/jdk1.7.0_01/ojdbc6.jar")
+# jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="F:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
+jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="C:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
 
 possibleError <- tryCatch(
   jdbcConnection <- dbConnect(jdbcDriver, "jdbc:oracle:thin:@128.83.138.158:1521:orcl", "C##cs347_hnp248", "orcl_hnp248"),
@@ -61,7 +61,7 @@ shinyServer(function(input, output) {
       choroplethr(mapBlackState, "state", title = 'Black or African American Population by State', num_buckets=4)  + scale_fill_brewer(palette=8)
       
     }
-    else if (input$var == "Indian")
+    else if (input$var == "American Indian and Alaska Native")
     {
       mapIndianState <- subset(popAll, RACE =='American Indian and Alaska Native' & SEX =='Total' & ORIGIN =='Total')
       mapIndianState <- ddply(mapIndianState, 'STATE', numcolwise(sum))
