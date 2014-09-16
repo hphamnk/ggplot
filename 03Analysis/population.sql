@@ -85,7 +85,7 @@ select s.STATE_NAME as State, r.RACE_NAME as Race, o.ORIGIN_NAME as Origin, p.AG
      INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
      INNER JOIN ORIGIN o on p.ORIGIN_ID = o.ORIGIN_ID
   group by s.STATE_NAME, r.RACE_NAME, o.ORIGIN_NAME, p.AGE, s2.SEX_NAME
-  order by s.STATE_NAME, r.RACE_NAME, o.ORIGIN_NAME, p.AGE, s2.SEX_NAME asc
+  order by s.STATE_NAME, r.RACE_NAME, p.AGE, s2.SEX_NAME asc
 ;
 ----------------------------------------------------------------------------------
 

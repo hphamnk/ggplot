@@ -1,13 +1,16 @@
 library(shiny)
 
-library(ggplot2)
+library("ggplot2")
 options(java.parameters="-Xmx4g")
 library(rJava)
 library(RJDBC)
 library(scales)
 library(maps)
 library(ggmap)
+library(plyr)
 library(choroplethr)
+library(RColorBrewer)
+#runApp('04Shiny')
 
 jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="F:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
 #jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="C:/Program Files/Java/jdk1.7.0_01/ojdbc6.jar")
@@ -18,121 +21,83 @@ possibleError <- tryCatch(
 )
 if(!inherits(possibleError, "error")){
   
-  #pop by state
-  popState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, sum(p.CENSUS2010POP) as Population
-  from POPULATION p 
-    INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
-  group by s.STATE_NAME
-  order by s.STATE_NAME asc")
+  popAll <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, o.ORIGIN_NAME as Origin, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
+                       from POPULATION p
+                       INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
+                       INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
+                       INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
+                       INNER JOIN ORIGIN o on p.ORIGIN_ID = o.ORIGIN_ID
+                       group by s.STATE_NAME, r.RACE_NAME, o.ORIGIN_NAME, p.AGE, s2.SEX_NAME
+                       order by s.STATE_NAME, r.RACE_NAME, p.AGE, s2.SEX_NAME asc")
   
-  #pop by race
-  popRace <- dbGetQuery(jdbcConnection, "select r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-  from POPULATION p 
-    INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-  where p.ORIGIN_ID = 0 and p.SEX_ID = 0
-  group by r.RACE_NAME
-  order by r.RACE_NAME asc")
-  
-  #white pop by state
-  whiteState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-  from POPULATION p
-     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 1
-  group by s.STATE_NAME, r.RACE_NAME
-  order by s.STATE_NAME asc")
-  
-  #black pop by state
-  blackState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-  from POPULATION p
-     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 2
-  group by s.STATE_NAME, r.RACE_NAME
-  order by s.STATE_NAME asc")
-  
-  #native indian pop by state
-  indianState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-  from POPULATION p
-     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 3
-  group by s.STATE_NAME, r.RACE_NAME
-  order by s.STATE_NAME asc")
-  
-  #asian pop by state
-  asianState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-  from POPULATION p
-     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 4
-  group by s.STATE_NAME, r.RACE_NAME
-  order by s.STATE_NAME asc")
-  
-  #hawaii pop by state
-  hawaiiState <- dbGetQuery(jdbcConnection, "select s.STATE_NAME as State, r.RACE_NAME as Race, sum(p.CENSUS2010POP) as Population
-  from POPULATION p
-     INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
-     INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
-  where p.ORIGIN_ID = 0 and p.SEX_ID = 0 and r.RACE_ID = 5
-  group by s.STATE_NAME, r.RACE_NAME
-  order by s.STATE_NAME asc")
-
   dbDisconnect(jdbcConnection)
- 
+  
 }
-
-colnames(popState) <- c("region", 'value')
-colnames(whiteState) <- c('region', 'race', 'value')
-colnames(blackState) <- c('region', 'race', 'value')
-colnames(indianState) <- c('region', 'race', 'value')
-colnames(asianState) <- c('region', 'race', 'value')
-colnames(hawaiiState) <- c('region', 'race', 'value')
 
 
 shinyServer(function(input, output) {
-
-     output$disPlot <- renderPlot({ 
-       
-       s <- "str"
-       g <- popState
-       if (input$var == "Total")
-       {
-         s <- "Population by State"
-         g <- popState
-       }
-       else if (input$var == "White")
-       {
-         s <- "White Population by State"
-         g <- whiteState
-       }
-       else if (input$var == "Black")
-       {
-         s <- "Black Population by State"
-         g <-blackState
-       }
-       else if (input$var == "Indian")
-       {
-         s <- "American Indian and Alaska Native Population by State"
-         g <- indianState
-       }
-       else if (input$var == "Asian")
-       {
-         s <- "Asian by State"
-         g <-asianState
-       }
-       else
-       {
-         s <- 'Native Hawaiian and Other Pacific Islander Population by State'
-         g <- hawaiiState
-       }
-       
-      	choroplethr(g, "state", title = s, num_buckets=4)
-    })
   
+  output$disPlot <- renderPlot({ 
 
-  }
+    if (input$var == "Total")
+    {
+      mapPopState <- totalPopState
+      colnames(mapPopState) <- c("region", 'value')
+      choroplethr(mapPopState, "state", title = 'Population by State')
+    }
+    else if (input$var == "White")
+    {
+      mapWhiteState <- subset(popAll, RACE =='White' & SEX =='Total' & ORIGIN =='Total')
+      mapWhiteState <- ddply(mapWhiteState, 'STATE', numcolwise(sum))
+      colnames(mapWhiteState) <- c('region', 'value')
+      choroplethr(mapWhiteState, "state", title = 'White Population by State', num_buckets=4) + scale_fill_brewer(palette=10)
+      
+    }
+    else if (input$var == "Black or African American")
+    {
+      mapBlackState <- subset(popAll, RACE =='Black or African American' & SEX =='Total' & ORIGIN =='Total')
+      mapBlackState <- ddply(mapBlackState, 'STATE', numcolwise(sum))
+      colnames(mapBlackState) <- c('region', 'value')
+      choroplethr(mapBlackState, "state", title = 'Black or African American Population by State', num_buckets=4)  + scale_fill_brewer(palette=8)
+      
+    }
+    else if (input$var == "Indian")
+    {
+      mapIndianState <- subset(popAll, RACE =='American Indian and Alaska Native' & SEX =='Total' & ORIGIN =='Total')
+      mapIndianState <- ddply(mapIndianState, 'STATE', numcolwise(sum))
+      colnames(mapIndianState) <- c('region', 'value')
+      choroplethr(mapIndianState, "state", title = 'American Indian and Alaska Native Population by State', num_buckets=4)  + scale_fill_brewer(palette=15)
+      
+    }
+    else if (input$var == "Asian")
+    {
+      mapAsianState <- subset(popAll, RACE =='Asian' & SEX =='Total' & ORIGIN =='Total')
+      mapAsianState <- ddply(mapAsianState, 'STATE', numcolwise(sum))
+      colnames(mapAsianState) <- c('region', 'value')
+      choroplethr(mapAsianState, "state", title = 'Asian Population by State', num_buckets=4)  + scale_fill_brewer(palette=4)
+      
+    }
+    else if (input$var == "Hispanic")
+    {
+      mapHispanicState <- subset(popAll, SEX =='Total' & ORIGIN =='Hispanic')
+      mapHispanicState <- ddply(mapHispanicState, 'STATE', numcolwise(sum))
+      colnames(mapHispanicState) <- c('region', 'value')
+      choroplethr(mapHispanicState, "state", title = 'Hispanic Population by State', num_buckets=4) + scale_fill_brewer(palette=18)
+      
+    }
+    else if (input$var == "Native Hawaiian and Other Pacific Islander")
+    {
+      mapHawaiiState <- subset(popAll, RACE =='Native Hawaiian and Other Pacific Islander' & SEX =='Total' & ORIGIN =='Total')
+      mapHawaiiState <- ddply(mapHawaiiState, 'STATE', numcolwise(sum))
+      colnames(mapHawaiiState) <- c('region', 'value')
+      choroplethr(mapHawaiiState, "state", title = 'Native Hawaiian and Other Pacific Islander Population by State', num_buckets=4)  + scale_fill_brewer(palette=3)
+      
+    }
+  })
+  
+  
+}
 )
+
 
 
