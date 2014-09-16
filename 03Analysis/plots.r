@@ -152,7 +152,7 @@ totalPopState <- ddply(totalPopState, 'STATE', numcolwise(sum))
 # state chart
 statePop <- totalPopState
 statePop$STATE2 <- reorder(statePop$STATE, statePop$POPULATION)
-ggplot(statePop, aes(y = POPULATION, x = STATE)) + coord_flip() + ggtitle("Population by State") + scale_y_continuous(labels = comma) + geom_bar(aes(x=STATE2, fill=factor(STATE2)), color = "black", data = statePop , stat = "identity") + guides(fill=FALSE)
+ggplot(statePop, aes(y = POPULATION, x = STATE)) + coord_flip() + ggtitle("Population by State") + scale_y_continuous(labels = comma) + geom_bar(aes(x=STATE2, fill=factor(POPULATION)), color = "black", data = statePop , stat = "identity") + guides(fill=FALSE)
 
 #--------------------
 #age by state, sex chart
@@ -223,11 +223,11 @@ ageCA <- subset(popAll, STATE =='CA' & SEX =='Total' & ORIGIN =='Total')
 ageCA <- ddply(ageCA, 'AGE', numcolwise(sum))
 ageCA$POPULATION <- as.numeric(ageCA$POPULATION)
 ageCA$AGE <- as.numeric(ageCA$AGE)
-ggplot(ageCA, aes(x = AGE, y = POPULATION, fill = factor(AGE))) + ggtitle("Total Population by Age in CA") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
+ggplot(ageCA, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in CA") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
 
 #population by age in TX
 ageTX <- subset(popAll, STATE =='TX'& SEX =='Total' & ORIGIN =='Total')
 ageTX <- ddply(ageTX, 'AGE', numcolwise(sum))
 ageTX$POPULATION <- as.numeric(ageTX$POPULATION)
 ageTX$AGE <- as.numeric(ageTX$AGE)
-ggplot(ageTX, aes(x = AGE, y = POPULATION, fill = factor(AGE))) + ggtitle("Total Population by Age in TX") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
+ggplot(ageTX, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in TX") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
