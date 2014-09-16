@@ -156,7 +156,7 @@ ggplot(statePop, aes(y = POPULATION, x = STATE)) + coord_flip() + ggtitle("Popul
 
 #--------------------
 #age by state, sex chart
-ggplot(data = popSAS, aes(x = AGE, y = POPULATION, fill = SEX)) + geom_bar(stat="identity", position=position_dodge()) + facet_wrap(~STATE, scales = "free")+ ggtitle("Population by State") + scale_y_continuous(labels = comma) + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) 
+#ggplot(data = popSAS, aes(x = AGE, y = POPULATION, fill = SEX)) + geom_bar(stat="identity", position=position_dodge()) + facet_wrap(~STATE, scales = "free")+ ggtitle("Population by State") + scale_y_continuous(labels = comma) + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) 
 #--------------------
 
 # race chart
@@ -213,7 +213,7 @@ maleRatio <- subset(popAll, SEX == 'Male')
 maleRatio <- ddply(maleRatio, 'STATE', numcolwise(sum))
 for (i in 1:51)
 {
-  maleRatio[i,"POPULATION"] <- round(maleRatio[i,"POPULATION"] / totalPopState[i,"POPULATION"], digits = 3 ) 
+  maleRatio[i,"POPULATION"] <- round(maleRatio[i,"POPULATION"] / totalPopState[i,"POPULATION"]/2, digits = 3 ) 
 }
 colnames(maleRatio) <- c("region", 'value')
 choroplethr(maleRatio, "state", title = 'Male Ratio by State')
