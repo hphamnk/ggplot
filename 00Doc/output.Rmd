@@ -23,7 +23,6 @@ sessionInfo()
 
 ###Data Analysis
 
-###Loading Library
 ```{r}
 source("./plots.r", echo=TRUE)
 ```
