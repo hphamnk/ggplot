@@ -3,26 +3,41 @@ output: html_document
 ---
 Data Science Fall 2014 R Project
 ===
-**This project analyzes the Population of the United States in 2010 and stored in an Oracle database.**
+**This project documents the processes of analyzing the Population of the United States in 2010, where the data is stored in an Oracle database.**
 
-###My RStudio configurtion:
+##My RStudio configurtion
 ```{r}
 sessionInfo()
 ```
-###My RStudio Packages:
+
+
+##My RStudio Packages
+
+******
 ![](./rprofile.png) 
 
-###Logical Model of the Database
+
+
+##Logical Model of the Database
+******
 ![](./PopulationLogical.png) 
+******
 
-###First few rows of population.csv
+
+##First few rows of population.csv
+******
 ![](./SamplePopulation.png) 
+******
 
-###The keys for sereval attributes in population.csv
+
+##The keys for certain attributes in population.csv
+******
 ![](./keys.png)
+******
 
 
-###Data Analysis
+##Data Analysis
+
 
 ```{r}
 source("../03Analysis/plots.r", echo=TRUE)
