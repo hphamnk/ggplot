@@ -9,7 +9,8 @@ library(maps)
 library(ggmap)
 library(choroplethr)
 
-jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="C:/Program Files/Java/jdk1.7.0_01/ojdbc6.jar")
+jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="F:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
+#jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="C:/Program Files/Java/jdk1.7.0_01/ojdbc6.jar")
 
 possibleError <- tryCatch(
   jdbcConnection <- dbConnect(jdbcDriver, "jdbc:oracle:thin:@128.83.138.158:1521:orcl", "C##cs347_hnp248", "orcl_hnp248"),
@@ -103,7 +104,7 @@ shinyServer(function(input, output) {
        }
        else if (input$var == "White")
        {
-         s <- "White Populaiton by State"
+         s <- "White Population by State"
          g <- whiteState
        }
        else if (input$var == "Black")

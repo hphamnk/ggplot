@@ -78,14 +78,14 @@ select s.STATE_NAME as State, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010
 --------
 
 --total population by state, race, age, sex
-select s.STATE_NAME as State, r.RACE_NAME as Race, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
+select s.STATE_NAME as State, r.RACE_NAME as Race, o.ORIGIN_NAME as Origin, p.AGE as Age, s2.SEX_NAME as Sex, sum(p.CENSUS2010POP) as Population
   from POPULATION p
      INNER JOIN STATE s on p.STATE_ID = s.STATE_ID
      INNER JOIN RACE r on  p.RACE_ID = r.RACE_ID
      INNER JOIN SEX s2 on p.SEX_ID = s2.SEX_ID
-  where p.ORIGIN_ID = 0 and (p.SEX_ID = 1 or p.SEX_ID = 2)
-  group by s.STATE_NAME, r.RACE_NAME, p.AGE, s2.SEX_NAME
-  order by s.STATE_NAME, r.RACE_NAME, p.AGE, s2.SEX_NAME asc
+     INNER JOIN ORIGIN o on p.ORIGIN_ID = o.ORIGIN_ID
+  group by s.STATE_NAME, r.RACE_NAME, o.ORIGIN_NAME, p.AGE, s2.SEX_NAME
+  order by s.STATE_NAME, r.RACE_NAME, o.ORIGIN_NAME, p.AGE, s2.SEX_NAME asc
 ;
 ----------------------------------------------------------------------------------
 
