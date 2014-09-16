@@ -176,37 +176,37 @@ choroplethr(mapPopState, "state", title = 'Population by State')
 mapWhiteState <- subset(popAll, RACE =='White' & SEX =='Total' & ORIGIN =='Total')
 mapWhiteState <- ddply(mapWhiteState, 'STATE', numcolwise(sum))
 colnames(mapWhiteState) <- c('region', 'value')
-choroplethr(mapWhiteState, "state", title = 'White Population by State', num_buckets=4)
+choroplethr(mapWhiteState, "state", title = 'White Population by State', num_buckets=4) + scale_fill_brewer(palette=10)
 
 #map Black or African American Population by State
 mapBlackState <- subset(popAll, RACE =='Black or African American' & SEX =='Total' & ORIGIN =='Total')
 mapBlackState <- ddply(mapBlackState, 'STATE', numcolwise(sum))
 colnames(mapBlackState) <- c('region', 'value')
-choroplethr(mapBlackState, "state", title = 'Black or African American Population by State', num_buckets=4)
+choroplethr(mapBlackState, "state", title = 'Black or African American Population by State', num_buckets=4)  + scale_fill_brewer(palette=8)
 
 #map American Indian and Alaska Native Population by State
 mapIndianState <- subset(popAll, RACE =='American Indian and Alaska Native' & SEX =='Total' & ORIGIN =='Total')
 mapIndianState <- ddply(mapIndianState, 'STATE', numcolwise(sum))
 colnames(mapIndianState) <- c('region', 'value')
-choroplethr(mapIndianState, "state", title = 'American Indian and Alaska Native Population by State', num_buckets=4)
+choroplethr(mapIndianState, "state", title = 'American Indian and Alaska Native Population by State', num_buckets=4)  + scale_fill_brewer(palette=15)
 
 #map Asian Population by State
 mapAsianState <- subset(popAll, RACE =='Asian' & SEX =='Total' & ORIGIN =='Total')
 mapAsianState <- ddply(mapAsianState, 'STATE', numcolwise(sum))
 colnames(mapAsianState) <- c('region', 'value')
-choroplethr(mapAsianState, "state", title = 'Asian Population by State', num_buckets=4)
+choroplethr(mapAsianState, "state", title = 'Asian Population by State', num_buckets=4)  + scale_fill_brewer(palette=4)
 
 #map Native Hawaiian and Other Pacific Islander Population by State
 mapHawaiiState <- subset(popAll, RACE =='Native Hawaiian and Other Pacific Islander' & SEX =='Total' & ORIGIN =='Total')
 mapHawaiiState <- ddply(mapHawaiiState, 'STATE', numcolwise(sum))
 colnames(mapHawaiiState) <- c('region', 'value')
-choroplethr(mapHawaiiState, "state", title = 'Native Hawaiian and Other Pacific Islander Population by State', num_buckets=4)
+choroplethr(mapHawaiiState, "state", title = 'Native Hawaiian and Other Pacific Islander Population by State', num_buckets=4)  + scale_fill_brewer(palette=3)
 
 #map Hispanic Population by State
 mapHispanicState <- subset(popAll, SEX =='Total' & ORIGIN =='Hispanic')
 mapHispanicState <- ddply(mapHispanicState, 'STATE', numcolwise(sum))
 colnames(mapHispanicState) <- c('region', 'value')
-choroplethr(mapHispanicState, "state", title = 'Hispanic Population by State', num_buckets=4)
+choroplethr(mapHispanicState, "state", title = 'Hispanic Population by State', num_buckets=4) + scale_fill_brewer(palette=18)
 
 #male ratio by state
 maleRatio <- subset(popAll, SEX == 'Male')
