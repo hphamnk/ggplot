@@ -122,3 +122,13 @@ ageTX <- ddply(ageTX, 'AGE', numcolwise(sum))
 ageTX$POPULATION <- as.numeric(ageTX$POPULATION)
 ageTX$AGE <- as.numeric(ageTX$AGE)
 ggplot(ageTX, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age in TX") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
+
+
+#ggplot(data = popSAS, aes(x = AGE, y = POPULATION, fill = SEX)) + geom_bar(stat="identity", position=position_dodge()) + facet_wrap(~STATE, scales = "free")+ ggtitle("Population by State") + scale_y_continuous(labels = comma) + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) 
+
+#age by state, sex chart
+age <- subset(popAll, SEX =='Total' & ORIGIN =='Total')
+age <- ddply(age, 'AGE', numcolwise(sum))
+age$POPULATION <- as.numeric(age$POPULATION)
+age$AGE <- as.numeric(age$AGE)
+ggplot(age, aes(x = AGE, y = POPULATION, fill = factor(POPULATION))) + ggtitle("Total Population by Age") + geom_histogram(stat = "identity") + scale_y_continuous(labels = comma) + guides(fill=FALSE)
