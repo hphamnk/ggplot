@@ -22,6 +22,35 @@ select sum(CENSUS2010POP) as Total_Pop
   where ORIGIN_ID = 2 and SEX_ID = 0
 ;
 
+-- Race White = 248,067,530
+select sum(CENSUS2010POP) as Total_Pop
+  from POPULATION
+  where RACE_ID = 1 and SEX_ID = 0 and ORIGIN_ID = 0
+;
+
+-- Race Black or African American = 43,213,173
+select sum(CENSUS2010POP) as Total_Pop
+  from POPULATION
+  where RACE_ID = 2 and SEX_ID = 0 and ORIGIN_ID = 0
+;
+
+-- Race American Indian and Alaska Native = 6,138,482
+select sum(CENSUS2010POP) as Total_Pop
+  from POPULATION
+  where RACE_ID = 3 and SEX_ID = 0 and ORIGIN_ID = 0
+;
+
+-- Race Asian = 17,676,507
+select sum(CENSUS2010POP) as Total_Pop
+  from POPULATION
+  where RACE_ID = 4 and SEX_ID = 0 and ORIGIN_ID = 0
+;
+
+-- Race Native Hawaiian and Other Pacific Islander = 1,332,494
+select sum(CENSUS2010POP) as Total_Pop
+  from POPULATION
+  where RACE_ID = 5 and SEX_ID = 0 and ORIGIN_ID = 0
+;
 ----------------------------------------------------------------------------------
 
 --total population by age
