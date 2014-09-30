@@ -1,12 +1,2 @@
-library("choroplethr", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("DBI", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("ggmap", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("ggplot2", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("maps", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("plyr", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("RColorBrewer", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("rJava", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("RJDBC", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("scales", lib.loc="C:/Program Files/R/R-3.0.3/library")
-library("shiny", lib.loc="C:/Program Files/R/R-3.0.3/library")
+
 
